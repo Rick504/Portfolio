@@ -53,12 +53,17 @@ function hideElement(id, classOne, classTwo) {
   document.querySelector(id).classList.remove(classTwo);
 }
 
+function elementEfectShow(id, positionScreen, scrollPosition) {
+  if (scrollPosition > positionScreen) {
+    showElement(id, 'effect-pull-show', 'effect-pull-hide');
+  } else {
+    hideElement(id, 'effect-pull-hide', 'effect-pull-show');
+  }
+}
+
 window.addEventListener('scroll', function () {
   var scrollPosition = window.scrollY;
-  // console.log(scrollPosition);
-  if (scrollPosition > 200) {
-    showElement('#about', 'effect-pull-show', 'effect-pull-hide');
-  } else {
-    hideElement('#about', 'effect-pull-hide', 'effect-pull-show');
-  }
+  elementEfectShow('#about', 200, scrollPosition);
+  elementEfectShow('#projects', 900, scrollPosition);
+  elementEfectShow('#contact', 1600, scrollPosition);
 });

@@ -1,5 +1,11 @@
 @import url('https://fonts.googleapis.com/css?family=Montserrat');
 
+:root {
+  --body-color: #f4f4f4;
+  --body-text-color: #0a0a0a;
+  --primary-color: hsl(204, 95%, 60%);
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -7,8 +13,8 @@
 }
 body {
   font-family: 'Montserrat', sans-serif;
-  background: #f1f1f1;
-  color: #1b1616;
+  background: var(--body-color);
+  color: var(--body-text-color);
 }
 
 html {
@@ -20,13 +26,17 @@ a:hover {
   padding-bottom: 0.5rem;
 }
 
+.title,
+.user-name,
+.written-effect p span.typed-text {
+  color: var(--primary-color);
+}
+
 .written-effect p span.typed-text {
   font-weight: normal;
-  color: #59614a;
 }
 .written-effect p span.cursor {
   display: inline-block;
-  background-color: #cccccc;
   width: 3px;
   animation: blink 1s infinite;
 }
@@ -61,9 +71,8 @@ a:hover {
   display: block;
 }
 .title {
-  color: #22cad0;
   font-family: 'open_sansregular';
-  background: #eeeeee;
+  background: var(--body-color);
   animation: motion 3s 1;
 }
 .description {
@@ -94,11 +103,11 @@ a:hover {
 }
 
 .effect-pull-show {
-  animation: show-text 1s 1;
+  animation: show-text 2s 1;
 }
 
 .effect-pull-hide {
-  animation: hide-text 1s 1;
+  animation: hide-text 2s 1;
   opacity: 0;
 }
 
@@ -218,19 +227,11 @@ a:hover {
 @keyframes show-text {
   0% {
     opacity: 0;
-    margin-left: -250px;
-  }
-  100% {
-    margin-left: 0;
   }
 }
 
 @keyframes hide-text {
   0% {
-    margin-left: 0;
     opacity: 1;
-  }
-  100% {
-    margin-left: -250px;
   }
 }
